@@ -1,6 +1,9 @@
 import Layout from '../components/layouts'
 
-export default function Races() {
+export default function Races({ races }) {
+
+  console.log(races)
+
   return (
     <Layout>
       <header className="flex items-center text-gray-500">
@@ -22,32 +25,50 @@ export default function Races() {
         <p className="w-20 py-1 text-center text-white text-xl">
           <abbr title="Troisième place">🥉</abbr>
         </p>
-        <p className="w-20 py-1 text-center text-white text-xl">
+        <p className="w-20 py-1 text-center text-white text-lg">
           <abbr title="Meilleur tour">⏱</abbr>
         </p>
       </header>
       <ul className="border-t border-b border-gray-700 divide-y divide-gray-700">
 
+        { races.map(race =>
 
-        <li className="flex items-center bg-gray-800">
-          <p className="w-10 pr-2 py-1 text-right text-gray-500">1</p>
+        <li className="flex items-center bg-gray-800 hover:bg-gray-700">
+          <p className="w-10 pr-2 py-1 text-right text-gray-500">{ race.round }</p>
           <div className="w-26 px-2 py-1">
             <p className="tag complete">completed</p>
           </div>
-          <p className="w-32 pl-2 py-1">5 Juillet</p>
-          <p className="w-14 py-1 text-center">15:10</p>
-          <p className="w-22 py-1 text-center">14:10</p>
-          <p className="w-96 px-2 py-1 font-semibold">Autodromo Internazionale del Mugello</p>
-          <p className="w-20 pl-2 py-1">🇮🇹 ITA</p>
-          <p className="w-28 py-1">Mugello</p>
-          <p className="w-20 py-1 text-center text-white font-semibold">🇫🇮 BOT</p>
-          <p className="w-20 py-1 text-center text-white font-semibold">🇲🇨 LEC</p>
-          <p className="w-20 py-1 text-center text-white font-semibold">🇬🇧 NOR</p>
-          <p className="w-20 py-1 text-center text-white font-semibold">🇬🇧 NOR</p>
+          <p className="w-32 pl-2 py-1">{ race.date }</p>
+          <p className="w-14 py-1 text-center">{ race.time.substring(0, 5) }</p>
+          <p className="w-22 py-1 text-center text-gray-500">-</p>
+          <p className="w-96 px-2 py-1 text-lg font-semibold">{ race.Circuit.circuitName }</p>
+          <p className="w-20 pl-2 py-1 uppercase">🏳 { race.Circuit.Location.country.substring(0, 3) }</p>
+          <p className="w-28 py-1">{ race.Circuit.Location.locality }</p>
+          <p className="w-20 py-1 text-center text-white font-semibold">🏳 [PIL]</p>
+          <p className="w-20 py-1 text-center text-white font-semibold">🏳 [PIL]</p>
+          <p className="w-20 py-1 text-center text-white font-semibold">🏳 [PIL]</p>
+          <p className="w-20 py-1 text-center text-white font-semibold">🏳 [PIL]</p>
         </li>
 
+        )}
 
       </ul>
+
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+
+  const fetchRaces = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
+  
+  const dataRaces = await fetchRaces.json()
+
+  const races = await dataRaces.MRData.RaceTable.Races
+
+  return {
+    props: {
+      races
+    }
+  } 
 }

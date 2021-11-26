@@ -18,12 +18,20 @@
     @apply no-underline;
   }
 
+  .w-18 {
+    width: 4.5rem;
+  }
+
   .w-22 {
     width: 5.5rem;
   }
 
   .w-26 {
     width: 6.5rem;
+  }
+
+  .w-58 {
+    width: 14.5rem;
   }
 
   .tag {

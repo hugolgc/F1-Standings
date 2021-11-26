@@ -1,85 +1,101 @@
 import Layout from '../components/layouts'
 
-export default function Teams() {
+export default function Teams({ teams }) {
+
+  console.log(teams)
+
   return (
     <Layout>
-      <header className="flex">
+      <header className="flex items-center text-gray-500">
         <p className="w-10 pr-2 py-1 text-right">
           <abbr title="Position">Pos</abbr>
         </p>
-        <p className="w-12 pr-2 py-1 text-right">
-          <abbr title="Numéro">#</abbr>
-        </p>
-        <p className="w-60 px-2 py-1">Pilote</p>
-        <p className="w-48 px-2 py-1">Pays</p>
-        <p className="w-48 px-2 py-1">Équipe</p>
-        <p className="w-10 py-1 text-center">
+        <p className="w-58 px-2 py-1">Équipe</p>
+        <p className="w-24 px-2 py-1">Pays</p>
+        <p className="w-10 py-1 text-center text-white text-xl">
           <abbr title="Première place">🥇</abbr>
         </p>
-        <p className="w-10 py-1 text-center">
+        <p className="w-10 py-1 text-center text-white text-xl">
           <abbr title="Deuxième place">🥈</abbr>
         </p>
-        <p className="w-10 py-1 text-center">
+        <p className="w-10 py-1 text-center text-white text-xl">
           <abbr title="Troisième place">🥉</abbr>
         </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Quatrième place">4</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Cinquième place">5</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Sixième place">6</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Septième place">7</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Huitième place">8</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Neuvième place">9</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
-          <abbr title="Dixième place">10</abbr>
-        </p>
-        <p className="w-10 py-1 text-center text-gray-500">
+        <p className="w-10 py-1 text-center text-white text-lg">
           <abbr title="Meilleur tour">⏱</abbr>
         </p>
-        <p className="w-10 py-1 text-center text-gray-500">
+        <p className="w-10 py-1 text-center">
           <abbr title="Abandon">DNF</abbr>
         </p>
-        <p className="w-14 pr-2 py-1 text-right text-gray-500">Best</p>
-        <p className="w-16 pr-4 py-1 text-right text-gray-500">
+        <p className="w-14 pr-2 py-1 text-right">
+          <abbr title="Meilleur résultat">Top</abbr>
+        </p>
+        <p className="w-72 px-2 py-1">Motoriste</p>
+        <p className="w-24 px-2 py-1">Pays</p>
+        <p className="w-58 px-2 py-1">Pilotes</p>
+        <p className="w-18 pr-4 py-1 text-right">
           <abbr title="Points">Pts</abbr>
         </p>
       </header>
       <ul className="border-t border-b border-gray-700 divide-y divide-gray-700">
-        <li className="flex items-center bg-gray-800">
-          <p className="w-10 pr-2 py-1 text-right text-gray-500">1</p>
-          <p className="w-12 pr-2 py-1 text-right">44</p>
-          <p className="w-60 px-2 py-1 space-x-2 text-xl">
-            <span className="text-gray-500">Lewis</span>
-            <strong className="font-semibold">Hamilton</strong>
+
+        { teams.map(team =>
+
+        <li key={ team.position } className="flex items-center bg-gray-800 hover:bg-gray-700">
+          <p className="w-10 pr-2 py-1 text-right text-gray-500">{ team.position }</p>
+          <p className="w-58 px-2 py-1 text-xl font-semibold">{ team.Constructor.name }</p>
+          <p className="w-24 px-2 py-1 uppercase">
+            <abbr title="">🏳 { team.Constructor.nationality.substring(0, 3) }</abbr>
           </p>
-          <p className="w-48 px-2 py-1">🇬🇧 Royaume-Unis</p>
-          <p className="w-48 px-2 py-1">🇩🇪 Mercedes</p>
-          <p className="w-10 py-1 text-center font-semibold">5</p>
-          <p className="w-10 py-1 text-center font-semibold">12</p>
-          <p className="w-10 py-1 text-center font-semibold">8</p>
-          <p className="w-10 py-1 text-center font-semibold">4</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-10 py-1 text-center font-semibold">6</p>
-          <p className="w-10 py-1 text-center font-semibold">1</p>
-          <p className="w-14 pr-2 py-1 text-right">1er</p>
-          <p className="w-16 pr-4 py-1 text-right text-lg font-semibold">276</p>
+          <p className="w-10 py-1 text-center text-gray-500">-</p>
+          <p className="w-10 py-1 text-center text-gray-500">-</p>
+          <p className="w-10 py-1 text-center text-gray-500">-</p>
+          <p className="w-10 py-1 text-center text-gray-500">-</p>
+          <p className="w-10 py-1 text-center text-gray-500">-</p>
+          <p className="w-14 pr-2 py-1 text-right">-</p>
+          <p className="w-72 px-2 py-1">[Motoriste]</p>
+          <p className="w-24 px-2 py-1">
+            <abbr title="">🏳 [NAT]</abbr>
+          </p>
+          <div className="w-58 px-2 py-1">
+            <div className="flex justify-between">
+              <p className="space-x-1">
+                <abbr title="">🏳</abbr>
+                <span className="text-gray-500">[Prénom]</span>
+                <strong className="font-semibold">[Nom]</strong>
+              </p>
+              <p>{ team.points / 2 }</p>
+            </div>
+            <div className="flex justify-between">
+              <p className="space-x-1">
+                <abbr title="">🏳</abbr>
+                <span className="text-gray-500">[Prénom]</span>
+                <strong className="font-semibold">[Nom]</strong>
+              </p>
+              <p>{ team.points / 2 }</p>
+            </div>
+          </div>
+          <p className="w-18 pr-4 py-1 text-right text-lg font-semibold">{ team.points }</p>
         </li>
+
+        )}
+
       </ul>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+
+  const fetchTeams = await fetch('https://ergast.com/api/f1/current/constructorStandings.json')
+  
+  const dataTeams = await fetchTeams.json()
+
+  const teams = await dataTeams.MRData.StandingsTable.StandingsLists[0].ConstructorStandings
+
+  return {
+    props: {
+      teams
+    }
+  } 
 }

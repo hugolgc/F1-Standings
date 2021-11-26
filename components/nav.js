@@ -4,11 +4,11 @@ import { useRouter } from 'next/router'
 export default function Nav() {
 
   const router = useRouter()
-  const URL = 'https://jgthms.com/f1-standings/'
+  const URL = 'https://github.com/hugolgc'
 
   return (
     <nav className="py-12 flex justify-between items-center">
-      <ul className="flex space-x-8 text-2xl font-semibold">
+      <ul className="flex space-x-6 text-2xl font-semibold">
         <li>
           <Link href="/">
             <a className={ router.asPath === '/' ? 'active' : 'inactive' }>🏎 Pilotes</a>
@@ -27,7 +27,7 @@ export default function Nav() {
       </ul>
       <div className="space-y-4">
         <p className="text-center text-gray-500">Partager cette page</p>
-        <ul className="flex justify-center space-x-6">
+        <ul className="flex justify-center space-x-4">
           <li>
             <a href={ `https://www.facebook.com/sharer.php?u=${ URL }` } target="_blank" rel="noreferrer">
               <img src="/facebook.png" alt="Facebook" className="h-5 w-5" />
