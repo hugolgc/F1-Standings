@@ -33,7 +33,7 @@ export default function Races({ races }) {
 
         { races.map(race =>
 
-        <li className="flex items-center bg-gray-800 hover:bg-gray-700">
+        <li key={ race.round } className="flex items-center bg-gray-800 hover:bg-gray-700">
           <p className="w-10 pr-2 py-1 text-right text-gray-500">{ race.round }</p>
           <div className="w-26 px-2 py-1">
             <p className="tag complete">completed</p>
