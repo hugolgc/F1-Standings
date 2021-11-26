@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 export default function Nav() {
 
   const router = useRouter()
-  const URL = 'https://github.com/hugolgc'
+  const URL = 'https://f1-standings.vercel.app'
 
   return (
     <nav className="py-12 flex justify-between items-center">
