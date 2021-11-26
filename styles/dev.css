@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    font-family: 'Quicksand', sans-serif;
+    @apply bg-gray-900;
+  }
+  
+  body > div {
+    @apply flex text-white font-light;
+  }
+
+  abbr[title] {
+    @apply no-underline;
+  }
+
+  .w-22 {
+    width: 5.5rem;
+  }
+
+  .w-26 {
+    width: 6.5rem;
+  }
+
+  .tag {
+    padding: 6px 0;
+    color: rgba(0, 0, 0, .6);
+
+    @apply w-full rounded-full text-xs text-center font-semibold;
+  }
+
+  .tag.complete {
+    @apply bg-green;
+  }
+
+  .active {
+    @apply text-red;
+  }
+
+  .inactive {
+    opacity: .2;
+  }
+
+  .inactive:hover {
+    opacity: 1;
+  }
+}
