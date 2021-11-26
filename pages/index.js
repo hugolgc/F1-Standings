@@ -8,22 +8,22 @@ export default function Drivers({ drivers, racesResults }) {
   return (
     <Layout>
       <header className="flex items-center text-gray-500">
-        <p className="w-10 pr-2 py-1 text-right">
+        <p className="w-10 pr-2 py-1 text-right text-red">
           <abbr title="Position">Pos</abbr>
         </p>
         <p className="w-12 pr-2 py-1 text-right">
           <abbr title="Numéro">#</abbr>
         </p>
-        <p className="w-58 px-2 py-1">Pilote</p>
-        <p className="w-48 px-2 py-1">Pays</p>
+        <p className="w-21 md:w-58 px-2 py-1">Pilote</p>
+        <p className="hidden md:blockw-48 px-2 py-1">Pays</p>
         <p className="w-48 px-2 py-1">Équipe</p>
-        <p className="w-10 py-1 text-center text-white text-xl">
+        <p className="w-10 py-1 text-center text-white text-base md:text-xl">
           <abbr title="Première place">🥇</abbr>
         </p>
-        <p className="w-10 py-1 text-center text-white text-xl">
+        <p className="w-10 py-1 text-center text-white text-base md:text-xl">
           <abbr title="Deuxième place">🥈</abbr>
         </p>
-        <p className="w-10 py-1 text-center text-white text-xl">
+        <p className="w-10 py-1 text-center text-white text-base md:text-xl">
           <abbr title="Troisième place">🥉</abbr>
         </p>
         <p className="w-10 py-1 text-center">
@@ -47,7 +47,7 @@ export default function Drivers({ drivers, racesResults }) {
         <p className="w-10 py-1 text-center">
           <abbr title="Dixième place">10</abbr>
         </p>
-        <p className="w-10 py-1 text-center text-white text-lg">
+        <p className="w-10 py-1 text-center text-white text-base md:text-lg">
           <abbr title="Meilleur tour">⏱</abbr>
         </p>
         <p className="w-10 py-1 text-center">
@@ -56,22 +56,23 @@ export default function Drivers({ drivers, racesResults }) {
         <p className="w-14 pr-2 py-1 text-right">
           <abbr title="Meilleur résultat">Top</abbr>
         </p>
-        <p className="w-18 pr-4 py-1 text-right">
+        <p className="w-16 md:w-18 pr-3 md:pr-4 py-1 text-right">
           <abbr title="Points">Pts</abbr>
         </p>
       </header>
-      <ul className="border-t border-b border-gray-700 divide-y divide-gray-700">
+      <ul className="md:border-t md:border-b border-gray-700 md:divide-y divide-gray-700">
 
         { drivers.map(driver =>
 
-        <li key={ driver.position } className="flex items-center bg-gray-800 hover:bg-gray-700">
+        <li key={ driver.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
           <p className="w-10 pr-2 py-1 text-right text-gray-500">{ driver.position }</p>
           <p className="w-12 pr-2 py-1 text-right">{ driver.Driver.permanentNumber }</p>
-          <p className="w-58 px-2 py-1 space-x-2 text-xl">
-            <span className="text-gray-500">{ driver.Driver.givenName }</span>
-            <strong className="font-semibold">{ driver.Driver.familyName }</strong>
+          <p className="sticky left-0 md:static w-21 md:w-58 px-2 py-1 md:space-x-2 bg-gray-700 md:bg-transparent text-base md:text-xl">
+            <span className="hidden md:block text-gray-500">{ driver.Driver.givenName }</span>
+            <strong className="hidden md:block font-semibold">{ driver.Driver.familyName }</strong>
+            <abbr title={ `${ driver.Driver.givenName } ${ driver.Driver.familyName }` } className="md:hidden m-0 font-semibold uppercase">🏳 { driver.Driver.familyName.substring(0, 3) }</abbr>
           </p>
-          <p className="w-48 px-2 py-1">🏳 { driver.Driver.nationality }</p>
+          <p className="hidden md:block w-48 px-2 py-1">🏳 { driver.Driver.nationality }</p>
           <p className="w-48 px-2 py-1">🏳 { driver.Constructors[0].name }</p>
           <p className="w-10 py-1 text-center text-gray-500">{ searchResults() }</p>
           <p className="w-10 py-1 text-center text-gray-500">-</p>
@@ -86,7 +87,7 @@ export default function Drivers({ drivers, racesResults }) {
           <p className="w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-14 pr-2 py-1 text-center text-gray-500">-</p>
-          <p className="w-18 pr-4 py-1 text-right text-lg font-semibold">{ driver.points }</p>
+          <p className="w-16 md:w-18 sticky right-0 md:static pr-3 md:pr-4 py-1 bg-gray-700 md:bg-transparent text-right text-base md:text-lg font-semibold">{ driver.points }</p>
         </li>
 
         )}

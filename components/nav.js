@@ -4,10 +4,10 @@ import { useRouter } from 'next/router'
 export default function Nav() {
 
   const router = useRouter()
-  const URL = 'https://f1-standings.vercel.app'
+  const URL = 'https://f1-standings.vercel.app/'
 
   return (
-    <nav className="py-12 flex justify-between items-center">
+    <nav className="py-12 flex flex-col md:flex-row md:justify-between items-center">
       <ul className="flex space-x-6 text-2xl font-semibold">
         <li>
           <Link href="/">
@@ -47,7 +47,7 @@ export default function Nav() {
       </div>
       <a href="http://github.com/hugolgc/" target="_blank" rel="noreferrer" className="flex flex-col items-center space-y-2">
         <span className="text-gray-500">Créé par</span>
-        <strong className="text-lg text-red hover:text-white font-semibold">@hugolgc</strong>
+        <strong className="text-base md:text-lg text-red hover:text-white font-semibold">@hugolgc</strong>
       </a>
     </nav> 
   )

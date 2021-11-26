@@ -7,7 +7,7 @@ export default function Races({ races }) {
   return (
     <Layout>
       <header className="flex items-center text-gray-500">
-        <p className="w-10 pr-2 py-1 text-right">
+        <p className="w-10 pr-2 py-1 text-right text-red">
           <abbr title="Position">Pos</abbr>
         </p>
         <p className="w-26 px-2 py-1">Status</p>
@@ -16,24 +16,24 @@ export default function Races({ races }) {
         <p className="w-22 py-1 text-center">Local</p>
         <p className="w-96 px-2 py-1">Circuit</p>
         <p className="w-48 px-2 py-1">Ville</p>
-        <p className="w-20 py-1 text-center text-white text-xl">
+        <p className="w-20 py-1 text-center text-white text-base md:text-xl">
           <abbr title="Première place">🥇</abbr>
         </p>
-        <p className="w-20 py-1 text-center text-white text-xl">
+        <p className="w-20 py-1 text-center text-white text-base md:text-xl">
           <abbr title="Deuxième place">🥈</abbr>
         </p>
-        <p className="w-20 py-1 text-center text-white text-xl">
+        <p className="w-20 py-1 text-center text-white text-base md:text-xl">
           <abbr title="Troisième place">🥉</abbr>
         </p>
-        <p className="w-20 py-1 text-center text-white text-lg">
+        <p className="w-20 py-1 text-center text-white text-base md:text-lg">
           <abbr title="Meilleur tour">⏱</abbr>
         </p>
       </header>
-      <ul className="border-t border-b border-gray-700 divide-y divide-gray-700">
+      <ul className="md:border-t md:border-b border-gray-700 md:divide-y divide-gray-700">
 
         { races.map(race =>
 
-        <li key={ race.round } className="flex items-center bg-gray-800 hover:bg-gray-700">
+        <li key={ race.round } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
           <p className="w-10 pr-2 py-1 text-right text-gray-500">{ race.round }</p>
           <div className="w-26 px-2 py-1">
             <p className="tag complete">completed</p>
@@ -41,7 +41,7 @@ export default function Races({ races }) {
           <p className="w-32 pl-2 py-1">{ race.date }</p>
           <p className="w-14 py-1 text-center">{ race.time.substring(0, 5) }</p>
           <p className="w-22 py-1 text-center text-gray-500">-</p>
-          <p className="w-96 px-2 py-1 text-lg font-semibold">{ race.Circuit.circuitName }</p>
+          <p className="w-96 px-2 py-1 text-base md:text-lg font-semibold">{ race.Circuit.circuitName }</p>
           <p className="w-20 pl-2 py-1 uppercase">🏳 { race.Circuit.Location.country.substring(0, 3) }</p>
           <p className="w-28 py-1">{ race.Circuit.Location.locality }</p>
           <p className="w-20 py-1 text-center text-white font-semibold">🏳 [PIL]</p>
