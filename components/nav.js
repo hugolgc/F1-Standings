@@ -7,8 +7,8 @@ export default function Nav() {
   const URL = 'https://f1-standings.vercel.app/'
 
   return (
-    <nav className="py-12 flex flex-col md:flex-row md:justify-between items-center">
-      <ul className="flex space-x-6 text-2xl font-semibold">
+    <nav className="py-12 space-y-8 md:space-y-0 flex flex-col md:flex-row md:justify-between items-center">
+      <ul className="space-x-6 flex text-lg md:text-2xl font-semibold">
         <li>
           <Link href="/">
             <a className={ router.asPath === '/' ? 'active' : 'inactive' }>🏎 Pilotes</a>

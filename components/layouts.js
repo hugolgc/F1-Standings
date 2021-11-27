@@ -1,10 +1,16 @@
 import Head from 'next/head'
 import Header from './header'
 import Nav from './nav'
+import { useRouter } from 'next/router'
 
 export default function Layout({ children }) {
 
   const date = new Date().getFullYear()
+  const router = useRouter()
+
+  const setClass = () => {
+    if (router.asPath === '/') return 'min-w-drivers'
+  }
 
   return (
     <div className="mx-auto py-6 md:px-6 bg-gray-900 text-sm md:text-base overflow-hidden">
@@ -16,7 +22,7 @@ export default function Layout({ children }) {
       <Header />
       <Nav />
       <main className="overflow-x-scroll">
-        <section className="min-w-table">{ children }</section>
+        <section className={ `${ setClass() } md:min-w-table` }>{ children }</section>
       </main>
     </div>
   )
