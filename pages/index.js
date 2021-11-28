@@ -1,9 +1,29 @@
 import Layout from '../components/layouts'
+import flags from '../flags'
 
-export default function Drivers({ drivers, racesResults }) {
+export default function Drivers({ drivers, races }) {
 
   const searchResults = () => '-'
-  console.log(drivers, racesResults)
+  console.log(drivers, races)
+
+  races.forEach(race => {
+    race.Results.forEach(result => {
+
+      
+      if (!drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions) {
+        drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions = []
+      }
+
+      if (!drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions[result.position]) {
+        drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions[result.position] = 0
+      }
+
+      drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions[result.position] = 0
+
+      console.log(result, drivers.find(driver => driver.Driver.driverId === result.Driver.driverId), race.round + ' - ' + result.position)
+  
+    })
+  })
 
   return (
     <Layout>
@@ -70,10 +90,10 @@ export default function Drivers({ drivers, racesResults }) {
           <p className="sticky left-0 md:static w-21 md:w-58 px-2 py-1 md:space-x-2 bg-gray-700 md:bg-transparent text-base md:text-xl">
             <span className="hidden md:inline text-gray-500">{ driver.Driver.givenName }</span>
             <strong className="hidden md:inline font-semibold">{ driver.Driver.familyName }</strong>
-            <abbr title={ `${ driver.Driver.givenName } ${ driver.Driver.familyName }` } className="md:hidden m-0 font-semibold uppercase">🏳 { driver.Driver.familyName.substring(0, 3) }</abbr>
+            <abbr title={ `${ driver.Driver.givenName } ${ driver.Driver.familyName }` } className="md:hidden m-0 font-semibold uppercase">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.familyName.substring(0, 3) }</abbr>
           </p>
-          <p className="hidden md:inline w-48 px-2 py-1">🏳 { driver.Driver.nationality }</p>
-          <p className="w-42 md:w-48 px-2 py-1">🏳 { driver.Constructors[0].name }</p>
+          <p className="hidden md:inline w-48 px-2 py-1">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.nationality }</p>
+          <p className="w-42 md:w-48 px-2 py-1">{ flags[driver.Constructors[0].nationality.toLowerCase()] } { driver.Constructors[0].name }</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">{ searchResults() }</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
@@ -100,18 +120,18 @@ export default function Drivers({ drivers, racesResults }) {
 export async function getStaticProps() {
 
   const fetchDrivers = await fetch('https://ergast.com/api/f1/current/driverStandings.json')
-  // const fetchRacesResults = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
+  const fetchRaces = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
   
   const dataDrivers = await fetchDrivers.json()
-  // const dataRacesResults = await fetchRacesResults.json()
+  const dataRaces = await fetchRaces.json()
 
   const drivers = await dataDrivers.MRData.StandingsTable.StandingsLists[0].DriverStandings
-  // const racesResults = await dataRacesResults.MRData.RaceTable.Races
+  const races = await dataRaces.MRData.RaceTable.Races
 
   return {
     props: {
       drivers,
-      // racesResults
+      races
     }
   } 
 }
