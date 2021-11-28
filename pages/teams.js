@@ -1,4 +1,5 @@
 import Layout from '../components/layouts'
+import flags from '../flags'
 
 export default function Teams({ teams }) {
 
@@ -45,7 +46,7 @@ export default function Teams({ teams }) {
           <p className="w-10 pr-2 py-1 text-right text-gray-500">{ team.position }</p>
           <p className="w-58 px-2 py-1 text-base md:text-xl font-semibold">{ team.Constructor.name }</p>
           <p className="w-24 px-2 py-1 uppercase">
-            <abbr title="">🏳 { team.Constructor.nationality.substring(0, 3) }</abbr>
+            <abbr title={ team.Constructor.nationality }>{ flags[team.Constructor.nationality.toLowerCase()] } { team.Constructor.nationality.substring(0, 3) }</abbr>
           </p>
           <p className="w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-10 py-1 text-center text-gray-500">-</p>
