@@ -4,26 +4,6 @@ import flags from '../flags'
 export default function Drivers({ drivers, races }) {
 
   const searchResults = () => '-'
-  console.log(drivers, races)
-
-  races.forEach(race => {
-    race.Results.forEach(result => {
-
-      
-      if (!drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions) {
-        drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions = []
-      }
-
-      if (!drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions[result.position]) {
-        drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions[result.position] = 0
-      }
-
-      drivers.find(driver => driver.Driver.driverId === result.Driver.driverId).resultsPositions[result.position] = 0
-
-      console.log(result, drivers.find(driver => driver.Driver.driverId === result.Driver.driverId), race.round + ' - ' + result.position)
-  
-    })
-  })
 
   return (
     <Layout>
@@ -86,7 +66,9 @@ export default function Drivers({ drivers, races }) {
 
         <li key={ driver.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
           <p className="w-9 md:w-10 pr-2 py-1 text-right text-gray-500">{ driver.position }</p>
-          <p className="w-10 md:w-12 pr-2 py-1 text-right">{ driver.Driver.permanentNumber }</p>
+          <p className="w-10 md:w-12 pr-2 py-1 text-right">
+            <span className="md:hidden">#</span> { driver.Driver.permanentNumber }
+          </p>
           <p className="sticky left-0 md:static w-21 md:w-58 px-2 py-1 md:space-x-2 bg-gray-700 md:bg-transparent text-base md:text-xl">
             <span className="hidden md:inline text-gray-500">{ driver.Driver.givenName }</span>
             <strong className="hidden md:inline font-semibold">{ driver.Driver.familyName }</strong>

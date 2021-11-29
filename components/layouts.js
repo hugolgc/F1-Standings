@@ -9,7 +9,9 @@ export default function Layout({ children }) {
   const router = useRouter()
 
   const setClass = () => {
-    if (router.asPath === '/') return 'min-w-drivers'
+    if (router.asPath === '/teams') return 'min-w-teams'
+    if (router.asPath === '/races') return 'min-w-races'
+    else return 'min-w-drivers'
   }
 
   return (
