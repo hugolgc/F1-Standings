@@ -29,11 +29,13 @@ flags['portugal'] = '🇵🇹'
 flags['qatar'] = '🇶🇦'
 flags['russia'] = '🇷🇺'
 flags['russian'] = '🇷🇺'
+flags['saudi arabia'] = '🇸🇦'
 flags['spain'] = '🇪🇸'
 flags['spanish'] = '🇪🇸'
 flags['swiss'] = '🇨🇭'
 flags['turkey'] = '🇹🇷'
 flags['uk'] = '🇬🇧'
+flags['uae'] = '🇦🇪'
 flags['usa'] = '🇺🇸'
 
 export default flags

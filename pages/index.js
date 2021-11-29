@@ -72,7 +72,7 @@ export default function Drivers({ drivers, races }) {
           <p className="sticky left-0 md:static w-21 md:w-58 px-2 py-1 md:space-x-2 bg-gray-700 md:bg-transparent text-base md:text-xl">
             <span className="hidden md:inline text-gray-500">{ driver.Driver.givenName }</span>
             <strong className="hidden md:inline font-semibold">{ driver.Driver.familyName }</strong>
-            <abbr title={ `${ driver.Driver.givenName } ${ driver.Driver.familyName }` } className="md:hidden m-0 font-semibold uppercase">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.familyName.substring(0, 3) }</abbr>
+            <abbr title={ `${ driver.Driver.givenName } ${ driver.Driver.familyName }` } className="md:hidden m-0 font-semibold uppercase">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.code }</abbr>
           </p>
           <p className="hidden md:inline w-48 px-2 py-1">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.nationality }</p>
           <p className="w-42 md:w-48 px-2 py-1">{ flags[driver.Constructors[0].nationality.toLowerCase()] } { driver.Constructors[0].name }</p>
