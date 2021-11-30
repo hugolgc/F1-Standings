@@ -20,6 +20,7 @@ export default function Layout({ children }) {
         <title>{ `F1 Standings - Résultats Pilotes, Équipes et Courses de Formule 1 ${ date }` }</title>
         <meta name="description" content= { `F1 Standings est votre plateforme gratuite et adaptée aux mobiles pour les classements des pilotes et des équipes de F1 ${ date } avec le calendrier des courses.` } />
         <link rel="icon" href="/favicon.ico" />
+        <script data-ad-client="ca-pub-4016856427147137" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </Head>
       <Header />
       <Nav />
