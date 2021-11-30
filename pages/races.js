@@ -53,7 +53,9 @@ export default function Races({ races, results }) {
           <div className="w-22 md:w-26 px-2 py-1">
             <p className={ setStatus(`${ race.date }T${ race.time }`)[1] }>{ setStatus(`${ race.date }T${ race.time }`)[0] }</p>
           </div>
-          <h5 className="w-28 md:w-32 pl-2 py-1">{ setDate(race.date) }</h5>
+          <h5 className="w-28 md:w-32 pl-2 py-1">
+            <time dateTime={ `${ race.date }T${ race.time }` }>{ setDate(race.date) }</time>
+          </h5>
           <p className="w-12 md:w-14 py-1 text-center">{ race.time.substring(0, 5) }</p>
           <p className="w-20 md:w-22 py-1 text-center">{ setHours(race.time) }</p>
           <h2 className="w-80 md:w-96 px-2 py-1 text-base md:text-lg font-semibold">{ race.Circuit.circuitName }</h2>
