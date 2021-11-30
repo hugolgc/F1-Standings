@@ -17,7 +17,6 @@ export default function Layout({ children }) {
   return (
     <div className="mx-auto py-6 md:px-6 bg-gray-900 text-sm md:text-base overflow-hidden">
       <Head>
-        <html lang="fr" />
         <title>
           {
             router.asPath === '/races'
