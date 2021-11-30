@@ -87,22 +87,22 @@ export default function Drivers({ drivers, results }) {
           <abbr title="Points">Pts</abbr>
         </p>
       </header>
-      <ul className="md:border-t md:border-b border-gray-700 md:divide-y divide-gray-700">
+      <div className="md:border-t md:border-b border-gray-700 md:divide-y divide-gray-700">
 
         { drivers.map(driver =>
 
-        <li key={ driver.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
+        <section key={ driver.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
           <p className="w-9 md:w-10 pr-2 py-1 text-right text-gray-500">{ driver.position }</p>
           <p className="w-10 md:w-12 pr-2 py-1 text-right">
             <span className="md:hidden">#</span> { driver.Driver.permanentNumber }
           </p>
-          <p className="sticky left-0 md:static w-21 md:w-58 px-2 py-1 md:space-x-2 bg-gray-700 md:bg-transparent text-base md:text-xl">
+          <h2 className="sticky left-0 md:static w-21 md:w-58 px-2 py-1 md:space-x-2 bg-gray-700 md:bg-transparent text-base md:text-xl">
             <span className="hidden md:inline text-gray-500">{ driver.Driver.givenName }</span>
             <strong className="hidden md:inline font-semibold">{ driver.Driver.familyName }</strong>
             <abbr title={ `${ driver.Driver.givenName } ${ driver.Driver.familyName }` } className="md:hidden m-0 font-semibold uppercase">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.code }</abbr>
-          </p>
-          <p className="hidden md:inline w-48 px-2 py-1">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.nationality }</p>
-          <p className="w-42 md:w-48 px-2 py-1">{ flags[driver.Constructors[0].nationality.toLowerCase()] } { driver.Constructors[0].name }</p>
+          </h2>
+          <h3 className="hidden md:inline w-48 px-2 py-1">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.nationality }</h3>
+          <h4 className="w-42 md:w-48 px-2 py-1">{ flags[driver.Constructors[0].nationality.toLowerCase()] } { driver.Constructors[0].name }</h4>
           <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][1] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][1] ? driversResults[driver.Driver.driverId][1] : '-' }</p>
           <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][2] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][2] ? driversResults[driver.Driver.driverId][2] : '-' }</p>
           <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][3] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][3] ? driversResults[driver.Driver.driverId][3] : '-' }</p>
@@ -115,13 +115,13 @@ export default function Drivers({ drivers, results }) {
           <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][10] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][10] ? driversResults[driver.Driver.driverId][10] : '-' }</p>
           <p className={ `w-9 md:w-10 py-1 text-center ${ !fastersLap[driver.Driver.driverId] ? 'text-gray-500' : 'font-semibold' }`}>{ fastersLap[driver.Driver.driverId] ? fastersLap[driver.Driver.driverId] : '-' }</p>
           <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId]['R'] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId]['R'] ? driversResults[driver.Driver.driverId]['R'] : '-' }</p>
-          <p className="w-14 pr-2 py-1 text-center text-right">{ getBest(driver.Driver.driverId) }</p>
-          <p className="w-16 md:w-18 sticky right-0 md:static pr-3 md:pr-4 py-1 bg-gray-700 md:bg-transparent text-right text-base md:text-lg font-semibold">{ driver.points }</p>
-        </li>
+          <h6 className="w-14 pr-2 py-1 text-center text-right">{ getBest(driver.Driver.driverId) }</h6>
+          <h5 className="w-16 md:w-18 sticky right-0 md:static pr-3 md:pr-4 py-1 bg-gray-700 md:bg-transparent text-right text-base md:text-lg font-semibold">{ driver.points }</h5>
+        </section>
 
         )}
 
-      </ul>
+      </div>
     </Layout>
   )
 }

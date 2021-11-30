@@ -37,26 +37,26 @@ export default function Teams({ teams }) {
           <abbr title="Points">Pts</abbr>
         </p>
       </header>
-      <ul className="md:border-t md:border-b border-gray-700 md:divide-y divide-gray-700">
+      <div className="md:border-t md:border-b border-gray-700 md:divide-y divide-gray-700">
 
         { teams.map(team =>
 
-        <li key={ team.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
+        <section key={ team.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
           <p className="w-9 md:w-10 pr-2 py-1 text-right text-gray-500">{ team.position }</p>
-          <p className="w-34 md:w-58 sticky left-0 md:static px-2 py-1 bg-gray-700 md:bg-transparent text-base md:text-xl font-semibold leading-teams md:leading-none">{ team.Constructor.name }</p>
-          <p className="w-20 md:w-24 px-2 py-1 uppercase">
+          <h2 className="w-34 md:w-58 sticky left-0 md:static px-2 py-1 bg-gray-700 md:bg-transparent text-base md:text-xl font-semibold leading-teams md:leading-none">{ team.Constructor.name }</h2>
+          <h3 className="w-20 md:w-24 px-2 py-1 uppercase">
             <abbr title={ team.Constructor.nationality }>{ flags[team.Constructor.nationality.toLowerCase()] } { team.Constructor.nationality.substring(0, 3) }</abbr>
-          </p>
+          </h3>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
           <p className="w-12 md:w-14 pr-2 py-1 text-right">-</p>
-          <p className="w-64 md:w-72 px-2 py-1">[Motoriste]</p>
-          <p className="w-20 md:w-24 px-2 py-1">
+          <h4 className="w-64 md:w-72 px-2 py-1">[Motoriste]</h4>
+          <h5 className="w-20 md:w-24 px-2 py-1">
             <abbr title="">🏳 [NAT]</abbr>
-          </p>
+          </h5>
           <div className="w-56 md:w-58 px-2 py-1">
             <div className="flex justify-between">
               <p className="space-x-1">
@@ -75,12 +75,12 @@ export default function Teams({ teams }) {
               <p>{ team.points / 2 }</p>
             </div>
           </div>
-          <p className="w-16 md:w-18 sticky right-0 md:static pr-3 md:pr-4 py-1 bg-gray-700 md:bg-transparent text-right text-base md:text-lg leading-teams md:leading-none font-semibold">{ team.points }</p>
-        </li>
+          <h6 className="w-16 md:w-18 sticky right-0 md:static pr-3 md:pr-4 py-1 bg-gray-700 md:bg-transparent text-right text-base md:text-lg leading-teams md:leading-none font-semibold">{ team.points }</h6>
+        </section>
 
         )}
 
-      </ul>
+      </div>
     </Layout>
   )
 }
