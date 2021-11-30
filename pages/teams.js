@@ -5,6 +5,7 @@ export default function Teams({ teams }) {
 
   return (
     <Layout>
+      <h1 className="hidden">Classement des Constructeurs de Formule 1 { new Date().getFullYear() } | @hugolgc</h1>
       <header className="flex items-center text-gray-500">
         <p className="w-9 md:w-10 pr-2 py-1 text-right text-red">
           <abbr title="Position">Pos</abbr>

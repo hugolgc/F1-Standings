@@ -17,15 +17,23 @@ export default function Layout({ children }) {
   return (
     <div className="mx-auto py-6 md:px-6 bg-gray-900 text-sm md:text-base overflow-hidden">
       <Head>
-        <title>{ `F1 Standings - Résultats Pilotes, Équipes et Courses de Formule 1 ${ date }` }</title>
-        <meta name="description" content= { `F1 Standings est votre plateforme gratuite et adaptée aux mobiles pour les classements des pilotes et des équipes de F1 ${ date } avec le calendrier des courses.` } />
+        <title>
+          {
+            router.asPath === '/races'
+            ? 'Calendrier des Courses'
+            : router.asPath === '/teams'
+            ? 'Classement des Constructeurs'
+            : 'Classement des Pilotes'
+          } de Formule 1 { new Date().getFullYear() } | @hugolgc
+        </title>
+        <meta name="description" content= { `Votre plateforme gratuite et adaptée aux mobiles pour les classements des pilotes et des équipes de F1 ${ date } avec le calendrier des courses.` } />
         <link rel="icon" href="/favicon.ico" />
         <script data-ad-client="ca-pub-4016856427147137" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       </Head>
       <Header />
       <Nav />
       <main className="overflow-x-scroll xl:overflow-hidden">
-        <section className={ `${ setClass() } md:min-w-table` }>{ children }</section>
+        <article className={ `${ setClass() } md:min-w-table` }>{ children }</article>
       </main>
     </div>
   )
