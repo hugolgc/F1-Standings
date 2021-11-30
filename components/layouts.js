@@ -23,7 +23,7 @@ export default function Layout({ children }) {
       </Head>
       <Header />
       <Nav />
-      <main className="overflow-x-scroll">
+      <main className="overflow-x-scroll xl:overflow-hidden">
         <section className={ `${ setClass() } md:min-w-table` }>{ children }</section>
       </main>
     </div>

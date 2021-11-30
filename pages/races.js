@@ -3,8 +3,6 @@ import flags from '../flags'
 
 export default function Races({ races, results }) {
 
-  console.log(races, results)
-
   const setStatus = date => new Date() < new Date(date) ? ['à venir', 'tag comming'] : ['terminé', 'tag complete']
   const getResult = round => results.find(result => result.round === round)
   const setHours = hours => hours.substring(0, 5)
@@ -16,10 +14,7 @@ export default function Races({ races, results }) {
   }
 
   const getFasterLap = index => {
-
     const filter = results[index].Results.filter(result => result.FastestLap)
-    console.log(filter.find(result => result.FastestLap.rank === '1') ?? false)
-
     return filter.find(result => result.FastestLap.rank === '1') ?? false
   }
 

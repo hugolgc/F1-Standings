@@ -1,9 +1,35 @@
 import Layout from '../components/layouts'
 import flags from '../flags'
 
-export default function Drivers({ drivers, races }) {
+export default function Drivers({ drivers, results }) {
 
-  const searchResults = () => '-'
+  const driversResults = []
+  const fastersLap = []
+
+  results.forEach(result => {
+    const fastest = result.Results.filter(result => result.FastestLap).find(result => result.FastestLap.rank === '1')
+    if (fastest) {
+      if (!fastersLap[fastest.Driver.driverId]) {
+        fastersLap[fastest.Driver.driverId] = 1
+      } else {
+        fastersLap[fastest.Driver.driverId]++
+      }
+    }
+    result.Results.forEach(driver => {
+      if (!driversResults[driver.Driver.driverId]) {
+        driversResults[driver.Driver.driverId] = []
+      } else if (!driversResults[driver.Driver.driverId][driver.positionText]) {
+        driversResults[driver.Driver.driverId][driver.positionText] = 1
+      } else {
+        driversResults[driver.Driver.driverId][driver.positionText]++
+      }
+    })
+  })
+
+  const getBest = driverId => {
+    const best = Object.keys(driversResults[driverId])[0]
+    return best == 1 ? '1er' : `${ best }e`
+  }
 
   return (
     <Layout>
@@ -76,19 +102,19 @@ export default function Drivers({ drivers, races }) {
           </p>
           <p className="hidden md:inline w-48 px-2 py-1">{ flags[driver.Driver.nationality.toLowerCase()] } { driver.Driver.nationality }</p>
           <p className="w-42 md:w-48 px-2 py-1">{ flags[driver.Constructors[0].nationality.toLowerCase()] } { driver.Constructors[0].name }</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">{ searchResults() }</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-9 md:w-10 py-1 text-center text-gray-500">-</p>
-          <p className="w-14 pr-2 py-1 text-center text-gray-500">-</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][1] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][1] ? driversResults[driver.Driver.driverId][1] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][2] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][2] ? driversResults[driver.Driver.driverId][2] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][3] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][3] ? driversResults[driver.Driver.driverId][3] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][4] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][4] ? driversResults[driver.Driver.driverId][4] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][5] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][5] ? driversResults[driver.Driver.driverId][5] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][6] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][6] ? driversResults[driver.Driver.driverId][6] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][7] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][7] ? driversResults[driver.Driver.driverId][7] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][8] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][8] ? driversResults[driver.Driver.driverId][8] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][9] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][9] ? driversResults[driver.Driver.driverId][9] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId][10] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId][10] ? driversResults[driver.Driver.driverId][10] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !fastersLap[driver.Driver.driverId] ? 'text-gray-500' : 'font-semibold' }`}>{ fastersLap[driver.Driver.driverId] ? fastersLap[driver.Driver.driverId] : '-' }</p>
+          <p className={ `w-9 md:w-10 py-1 text-center ${ !driversResults[driver.Driver.driverId]['R'] ? 'text-gray-500' : 'font-semibold' }`}>{ driversResults[driver.Driver.driverId]['R'] ? driversResults[driver.Driver.driverId]['R'] : '-' }</p>
+          <p className="w-14 pr-2 py-1 text-center text-right">{ getBest(driver.Driver.driverId) }</p>
           <p className="w-16 md:w-18 sticky right-0 md:static pr-3 md:pr-4 py-1 bg-gray-700 md:bg-transparent text-right text-base md:text-lg font-semibold">{ driver.points }</p>
         </li>
 
@@ -102,18 +128,18 @@ export default function Drivers({ drivers, races }) {
 export async function getStaticProps() {
 
   const fetchDrivers = await fetch('https://ergast.com/api/f1/current/driverStandings.json')
-  const fetchRaces = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
+  const fetchResults = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
   
   const dataDrivers = await fetchDrivers.json()
-  const dataRaces = await fetchRaces.json()
+  const dataResults = await fetchResults.json()
 
   const drivers = await dataDrivers.MRData.StandingsTable.StandingsLists[0].DriverStandings
-  const races = await dataRaces.MRData.RaceTable.Races
+  const results = await dataResults.MRData.RaceTable.Races
 
   return {
     props: {
       drivers,
-      races
+      results
     }
   } 
 }
