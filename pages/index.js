@@ -91,7 +91,7 @@ export default function Drivers({ drivers, results }) {
 
         { drivers.map(driver =>
 
-        <section key={ driver.position } className="flex items-center bg-gray-800 md:hover:bg-gray-700">
+        <section key={ driver.position } className="flex bg-gray-800 md:hover:bg-gray-700">
           <p className="w-9 md:w-10 pr-2 py-1 text-right text-gray-500">{ driver.position }</p>
           <p className="w-10 md:w-12 pr-2 py-1 text-right">
             <span className="md:hidden">#</span> { driver.Driver.permanentNumber }

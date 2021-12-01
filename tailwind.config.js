@@ -23,7 +23,7 @@ module.exports = {
       'table': '82rem',
       'drivers': '55rem',
       'teams': '68.75rem',
-      'races': '71.25rem',
+      'races': '71.25rem'
     },
     extend: {
       width: {
@@ -34,11 +34,8 @@ module.exports = {
         34: '8.25rem',
         42: '10.5rem',
         58: '14.5rem'
-      },
-      lineHeight: {
-        'teams': '2.5rem'
       }
-    },
+    }
   },
   variants: {
     extend: {},

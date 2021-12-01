@@ -63,16 +63,16 @@ export default function Races({ races, results }) {
             <abbr title={ race.Circuit.Location.country }>{ flags[race.Circuit.Location.country.toLowerCase()] } { race.Circuit.Location.country.substring(0, 3) }</abbr>
           </h4>
           <h3 className="w-24 md:w-28 py-1">{ race.Circuit.Location.locality }</h3>
-          <h6 className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'text-white font-semibold uppercase' : 'text-gray-500' }`}>
+          <h6 className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'font-semibold uppercase' : 'text-gray-500' }`}>
             { getResult(race.round) ? <abbr title={ `${ results[index].Results[0].Driver.givenName } ${ results[index].Results[0].Driver.familyName }` }>{ flags[results[index].Results[0].Driver.nationality.toLowerCase()] } { results[index].Results[0].Driver.code }</abbr> : '-' }
           </h6>
-          <p className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'text-white font-semibold uppercase' : 'text-gray-500' }`}>
+          <p className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'font-semibold uppercase' : 'text-gray-500' }`}>
             { getResult(race.round) ? <abbr title={ `${ results[index].Results[1].Driver.givenName } ${ results[index].Results[1].Driver.familyName }` }>{ flags[results[index].Results[1].Driver.nationality.toLowerCase()] } { results[index].Results[1].Driver.code }</abbr> : '-' }
           </p>
-          <p className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'text-white font-semibold uppercase' : 'text-gray-500' }`}>
+          <p className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'font-semibold uppercase' : 'text-gray-500' }`}>
             { getResult(race.round) ? <abbr title={ `${ results[index].Results[2].Driver.givenName } ${ results[index].Results[2].Driver.familyName }` }>{ flags[results[index].Results[2].Driver.nationality.toLowerCase()] } { results[index].Results[2].Driver.code }</abbr> : '-' }
           </p>
-          <p className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'text-white font-semibold uppercase' : 'text-gray-500' }`}>
+          <p className={ `w-18 md:w-20 py-1 text-center ${ getResult(race.round) ? 'font-semibold uppercase' : 'text-gray-500' }`}>
             { !getResult(race.round) ? '-' : getFasterLap(index) ? <abbr title={ `${ getFasterLap(index).Driver.givenName } ${ getFasterLap(index).Driver.familyName }` }>{ flags[getFasterLap(index).Driver.nationality.toLowerCase()] } { getFasterLap(index).Driver.code }</abbr> : <abbr title={ `${ results[index].Results[0].Driver.givenName } ${ results[index].Results[0].Driver.familyName }` }>{ flags[results[index].Results[0].Driver.nationality.toLowerCase()] } { results[index].Results[0].Driver.code }</abbr> }
           </p>
         </section>
