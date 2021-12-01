@@ -29,6 +29,8 @@ export default function Layout({ children }) {
         <meta name="description" content= { `Votre plateforme gratuite et adaptée aux mobiles pour les classements des pilotes et des équipes de F1 ${ date } avec le calendrier des courses.` } />
         <link rel="icon" href="/favicon.ico" />
         <script data-ad-client="ca-pub-4016856427147137" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4YZQHTH2D"></script>
+        <script async src="/gtag.js"></script>
       </Head>
       <Header />
       <Nav />
