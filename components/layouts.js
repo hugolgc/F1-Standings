@@ -27,10 +27,7 @@ export default function Layout({ children }) {
           } de Formule 1 { new Date().getFullYear() } | @hugolgc
         </title>
         <meta name="description" content= { `Votre plateforme gratuite et adaptée aux mobiles pour les classements des pilotes et des équipes de F1 ${ date } avec le calendrier des courses.` } />
-        <meta name="google-site-verification" content="kvblUJsAxng1cN-_K-G2snU02VCyMwzl2hy5SRWRpyc" />
         <link rel="icon" href="/favicon.ico" />
-        <script data-ad-client="ca-pub-4016856427147137" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <script async src="/gtag.js"></script>
       </Head>
       <Header />
       <Nav />
