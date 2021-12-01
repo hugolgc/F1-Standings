@@ -99,7 +99,7 @@ export default function Teams({ teams, results, drivers }) {
 
             { driversTeams[team.Constructor.constructorId].map(driver =>
 
-            <div className="flex justify-between">
+            <div key={ driver.Driver.driverId } className="flex justify-between">
               <p className="space-x-1">
                 <abbr title={ driver.Driver.nationality }>{ flags[driver.Driver.nationality.toLowerCase()] }</abbr>
                 <span className="text-gray-500">{ driver.Driver.givenName }</span>
