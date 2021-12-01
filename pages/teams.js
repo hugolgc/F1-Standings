@@ -1,5 +1,6 @@
 import Layout from '../components/layouts'
 import flags from '../flags'
+import engines from '../engines'
 
 export default function Teams({ teams, results, drivers }) {
 
@@ -91,9 +92,9 @@ export default function Teams({ teams, results, drivers }) {
           <p className={ `w-9 md:w-10 py-1 flex items-center justify-center ${ fastersLap[team.Constructor.constructorId] ? 'font-semibold' : 'text-gray-500' }` }>{ fastersLap[team.Constructor.constructorId] ? fastersLap[team.Constructor.constructorId] : '-' }</p>
           <p className={ `w-9 md:w-10 py-1 flex items-center justify-center ${ teamsResults[team.Constructor.constructorId]['R'] ? 'font-semibold' : 'text-gray-500' }` }>{ teamsResults[team.Constructor.constructorId]['R'] ? teamsResults[team.Constructor.constructorId]['R'] : '-' }</p>
           <p className="w-12 md:w-14 pr-2 py-1 flex justify-end items-center">{ getBest(team.Constructor.constructorId) }</p>
-          <h4 className="w-64 md:w-72 px-2 py-1 flex items-center">[Motoriste]</h4>
-          <h5 className="w-20 md:w-24 px-2 py-1 flex items-center">
-            <abbr title="">🏳 [NAT]</abbr>
+          <h4 className="w-64 md:w-72 px-2 py-1 flex items-center">{ engines[team.Constructor.constructorId][0] }</h4>
+          <h5 className="w-20 md:w-24 px-2 py-1 flex items-center uppercase">
+            <abbr title={ engines[team.Constructor.constructorId][1] }>{ flags[engines[team.Constructor.constructorId][1]] } { engines[team.Constructor.constructorId][1].substring(0, 3) }</abbr>
           </h5>
           <div className="w-56 md:w-58 px-2 py-1">
 
