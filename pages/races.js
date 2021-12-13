@@ -85,7 +85,7 @@ export default function Races({ races, results }) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
 
   const fetchRaces = await fetch('https://ergast.com/api/f1/current.json?limit=1000')
   const fetchResults = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
