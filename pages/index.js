@@ -126,7 +126,7 @@ export default function Drivers({ drivers, results }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   const fetchDrivers = await fetch('https://ergast.com/api/f1/current/driverStandings.json')
   const fetchResults = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
