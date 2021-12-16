@@ -122,7 +122,7 @@ export default function Teams({ teams, results, drivers }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
 
   const fetchTeams = await fetch('https://ergast.com/api/f1/current/constructorStandings.json')
   const fetchResults = await fetch('https://ergast.com/api/f1/current/results.json?limit=1000')
