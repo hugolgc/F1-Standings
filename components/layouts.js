@@ -29,7 +29,6 @@ export default function Layout({ children }) {
         <meta name="description" content= { `Votre plateforme gratuite et adaptée aux mobiles pour les classements des pilotes et des équipes de F1 ${ date } avec le calendrier des courses.` } />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {*/ <Header /> */}
       <Nav />
       <main className="overflow-x-scroll xl:overflow-hidden">
         <article className={ `${ setClass() } md:min-w-table` }>{ children }</article>
