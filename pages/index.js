@@ -27,6 +27,7 @@ export default function Drivers({ drivers, results }) {
   })
 
   const getBest = driverId => {
+    if (!driversResults[driverId].length) return 'DNF'
     const best = Object.keys(driversResults[driverId])[0]
     return best == 1 ? '1er' : `${ best }e`
   }
