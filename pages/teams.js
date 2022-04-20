@@ -141,6 +141,7 @@ export async function getStaticProps() {
       teams,
       results,
       drivers
-    }
+    },
+    revalidate: 10
   } 
 }

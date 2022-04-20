@@ -103,6 +103,7 @@ export async function getStaticProps() {
     props: {
       races,
       results
-    }
+    },
+    revalidate: 10
   } 
 }

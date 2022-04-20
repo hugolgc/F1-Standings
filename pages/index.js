@@ -141,6 +141,7 @@ export async function getStaticProps() {
     props: {
       drivers,
       results
-    }
+    },
+    revalidate: 10
   } 
 }
